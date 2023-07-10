@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Edit Todo
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="deleteTodo()">
+        <ion-icon name="trash-outline" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form #f="ngForm" (ngSubmit)="save(f)">
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Subject *</ion-label>
+        <ion-input #subject="ngModel" [ngModel]="todo?.subject" [required]="true" name="subject"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Description</ion-label>
+        <ion-input [ngModel]="todo?.description" name="description"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button [disabled]="!f.valid" expand="full" size="default" type="submit">Save</ion-button>
+    <div *ngIf="!subject.valid && subject.touched" class="ion-margin-top errorMessage">Please enter a Subject</div>
+  </form>
+</ion-content>
