@@ -1,7 +1,5 @@
 # demoBackgroundSync
 
-Prerrequisites:
-
 
 To run the example, you first have to start the server:
 
@@ -15,7 +13,7 @@ cd server
 Then build and run the client
 
 ```Shell
-CD clientng
+cd clientng
 npm -i
 ng build --configuration production
 http-server ./dist/app -c-1 -o
